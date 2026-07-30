@@ -1,5 +1,5 @@
 function _sysDecode(_str) {
-    const _k = 42; // XOR kulcs
+    const _k = 42;
     let _r = '';
     for (let _i = 0; _i < _str.length; _i++) {
         _r += String.fromCharCode(_str.charCodeAt(_i) ^ _k);
@@ -12,7 +12,6 @@ function initializeSecureData(token) {
     const cells = document.querySelectorAll(_targetClass);
     
     cells.forEach(cell => {
-        // Dinamikusan olvassuk ki az attribútumot is
         const _attrName = ['data', '-', 'email'].join('');
         const encodedData = cell.getAttribute(_attrName);
         
