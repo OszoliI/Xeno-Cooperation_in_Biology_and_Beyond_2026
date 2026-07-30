@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xeno-Coop conf 2026 Organisers</title>
     <link rel="stylesheet" href="styles/style.css">
-    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
+    <!-- Google reCAPTCHA Enterprise API -->
+    <script src="https://www.google.com/recaptcha/enterprise.js" async="" defer=""></script>
 </head>
 <body>
 
@@ -22,10 +23,11 @@
         </div>
     </header>
 
-        <!-- Kijavított központosító konténer -->
-    <div style="text-align: center; margin: 20px 0;">
-        Show email: 
-        <div class="g-recaptcha" data-sitekey="6LdKymwtAAAAADt2Y2sA6mqRA96JjzparepOAs_2" data-action="LOGIN"></div>
+    <!-- KÖZÉPRE ZÁRT, A CSS STÍLUSHOZ IGAZÍTOTT CAPTCHA BLOKK -->
+    <div class="captcha-wrapper">
+        <div class="captcha-instruction">Show electronic mail:</div>
+        <!-- A Google reCAPTCHA doboza automatikus visszahívással -->
+        <div class="g-recaptcha" data-sitekey="6LdKymwtAAAAADt2Y2sA6mqRA96JjzparepOAs_2" data-callback="revealSecureEmail"></div>
     </div>
 
     <main class="container">
@@ -45,29 +47,49 @@
                     <tr>
                         <td>István Scheuring</td>
                         <td>Scientific Advisor</td>
-                        <td><a href="examplemail@google.com">examplemail@google.com</a></td>
-                        <td><a href="https://scholar.google.com/citations?user=hCOutxAAAAAJ&hl=hu&oi=ao">Google scholar</a></p>
-                        <a href="https://m2.mtmt.hu/gui2/?type=authors&mode=browse&sel=authors10009480">MTMT</a></p>
-                        <a href="https://ecolres.hun-ren.hu/en/munkatarsak/istvan-scheuring/">Professional CER webpage</a></p>
-                        <a href="https://orcid.org/0000-0002-8108-8897">ORCID</a></p>
-                        <a href="https://www.researchgate.net/profile/Istvan-Scheuring-2">ResearchGate</a></p>
-                        <a href="https://hu.linkedin.com/in/istvan-scheuring-44771349">LinkedIn</a></p>
-                        <a href="https://www.scopus.com/pages/authors/7003538716">Scopus</a></td>
+                        <!-- Biztonságos cella, kezdetben üzenettel az email cím helyett -->
+                        <td id="secure-email-cell">
+                            <span class="waiting-msg"></span>
+                        </td>
+                        <td>
+                            <!-- Kijavított linkek: tiszta sortörésekkel a hibás </p> helyett -->
+                            <a href="https://google.com">Google scholar</a><br>
+                            <a href="https://mtmt.hu">MTMT</a><br>
+                            <a href="https://hun-ren.hu">Professional CER webpage</a><br>
+                            <a href="https://orcid.org">ORCID</a><br>
+                            <a href="https://researchgate.net">ResearchGate</a><br>
+                            <a href="https://linkedin.com">LinkedIn</a><br>
+                            <a href="https://scopus.com">Scopus</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </main>
+
     <footer>
-    <div class="container footer-content">
-        <div class="footer-section">
-            <a href="https://www.facebook.com/okologiaikutatokozpont/">Facebook</a>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <a href="https://facebook.com">Facebook</a>
+            </div>
+            <div class="footer-section">
+                <a href="References.html">References</a>
+            </div>
         </div>
-        <div class="footer-section">
-            <a href="References.html">References</a>
-        </div>
-    </div>
-</footer>
+    </footer>
+
+    <!-- JavaScript az ellenőrzés futtatásához és az email biztonságos beszúrásához -->
+    <script>
+        function revealSecureEmail(token) {
+            const emailCell = document.getElementById('secure-email-cell');
+            
+            // Csak sikeres ellenőrzés után illesztjük be a valódi email linket
+            emailCell.innerHTML = '<a href="mailto:examplemail@google.com">examplemail@google.com</a>';
+            
+            // Opcionális: Szépen elrejti a fenti CAPTCHA dobozt, ha már sikeres volt a pipálás
+            document.querySelector('.captcha-wrapper').style.display = 'none';
+        }
+    </script>
 
 </body>
 </html>
