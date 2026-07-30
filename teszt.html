@@ -1,87 +1,78 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-mail Védelem Teszt</title>
-    
-    <!-- 1. A Google VÁLLALATI (Enterprise) reCAPTCHA betöltése -->
-    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        .container {
-            max-width: 500px;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        h3 {
-            margin-top: 0;
-            color: #222;
-        }
-        .leiras {
-            margin-bottom: 20px;
-            font-size: 15px;
-        }
-        #email-doboz {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 4px;
-            display: none; /* Alapértelmezetten rejtve van */
-            font-weight: bold;
-            font-size: 16px;
-        }
-        .siker {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-    </style>
+    <title>Xeno-Coop conf 2026 Organisers</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://google.com" async defer></script>
 </head>
 <body>
 
-<div class="container">
-    <h3>Lépjen velünk kapcsolatba</h3>
-    <p class="leiras">Az e-mail cím megtekintéséhez kérjük, igazolja, hogy Ön ember:</p>
+    <header>
+        <div class="container header-content">
+            <h1><a href="Homepage.html" class="logo-link">Xeno-Cooperation in Biology and Beyond Conference 2026</a></h1>
+            <nav>
+                <a href="Homepage.html">Homepage</a>
+                <a href="About.html">About</a>
+                <a href="Programme.html">Programme</a>
+                <a href="Abstracts.html">Abstracts</a>
+                <a href="Organisers.html" class="active">Organisers</a>
+            </nav>
+        </div>
+    </header>
 
-    <!-- 2. A VÁLLALATI reCAPTCHA doboz a működő kulccsal és action paraméterrel -->
-    <div class="g-recaptcha" 
-         data-sitekey="6LdKymwtAAAAADt2Y2sA6mqRA96JjzparepOAs_2" 
-         data-action="LOGIN"
-         data-callback="recaptchaSikeres">
+        <!-- Kijavított központosító konténer -->
+    <div style="text-align: center; margin: 20px 0;">
+        Show email: 
+        <div class="g-recaptcha" 
+             style="display: inline-block; margin-top: 10px;"
+             data-sitekey="6LdKymwtAAAAADt2Y2sA6mqRA96JjzparepOAs_2" 
+             data-action="LOGIN"
+             data-callback="recaptchaSikeres">
+        </div>
     </div>
 
-    <!-- 3. Ide fog bekerülni az e-mail cím a sikeres ellenőrzés után -->
-    <div id="email-doboz" class="siker">
-        E-mail cím: <span id="email-helye"></span>
+    <main class="container">
+        <h2 class="page-title">Organisers</h2>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Electronic Mail</th>
+                        <th>Links</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>István Scheuring</td>
+                        <td>Scientific Advisor</td>
+                        <td><a href="examplemail@google.com">examplemail@google.com</a></td>
+                        <td><a href="https://scholar.google.com/citations?user=hCOutxAAAAAJ&hl=hu&oi=ao">Google scholar</a></p>
+                        <a href="https://m2.mtmt.hu/gui2/?type=authors&mode=browse&sel=authors10009480">MTMT</a></p>
+                        <a href="https://ecolres.hun-ren.hu/en/munkatarsak/istvan-scheuring/">Professional CER webpage</a></p>
+                        <a href="https://orcid.org/0000-0002-8108-8897">ORCID</a></p>
+                        <a href="https://www.researchgate.net/profile/Istvan-Scheuring-2">ResearchGate</a></p>
+                        <a href="https://hu.linkedin.com/in/istvan-scheuring-44771349">LinkedIn</a></p>
+                        <a href="https://www.scopus.com/pages/authors/7003538716">Scopus</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer>
+    <div class="container footer-content">
+        <div class="footer-section">
+            <a href="https://www.facebook.com/okologiaikutatokozpont/">Facebook</a>
+        </div>
+        <div class="footer-section">
+            <a href="References.html">References</a>
+        </div>
     </div>
-</div>
-
-<script>
-    // Ez a függvény automatikusan lefut, ha a felhasználó sikeresen teljesíti a captchát
-    function recaptchaSikeres(response) {
-        if (response && response.length > 0) {
-            // Darabokból rakjuk össze az e-mailt, hogy a spambotok ne olvassák ki a forráskódból
-            var felhasznalo = "XenoCoop2026"; 
-            var domain = "gmail.com"; 
-            var teljesEmail = felhasznalo + "@" + domain;
-
-            // Megjelenítjük a rejtett dobozt és beillesztjük a linket
-            var doboz = document.getElementById("email-doboz");
-            var helye = document.getElementById("email-helye");
-            
-            helye.innerHTML = '<a href="mailto:' + teljesEmail + '">' + teljesEmail + '</a>';
-            doboz.style.display = "block";
-        }
-    }
-</script>
+</footer>
 
 </body>
 </html>
