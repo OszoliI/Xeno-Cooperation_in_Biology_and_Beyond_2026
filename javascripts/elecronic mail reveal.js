@@ -1,24 +1,34 @@
 // js/script.js
 
 /**
- * Ez a függvény fut le automatikusan, ha a látogató sikeresen 
- * kipipálja a Google reCAPTCHA ellenőrzést.
- * @param {string} token - A Google által visszaadott biztonsági token
+ * A Google reCAPTCHA sikeres teljesítése után fut le.
+ * Végigmegy a cellákon, dekódolja a Base64-es adatot, és megjeleníti a linkeket.
  */
-function Reveal_secure_electronic_mail(token) {
-    // Megkeressük a táblázatban az email helyét biztosító cellát
-    const emailCell = document.getElementById('secure-email-cell');
+function revealSecureEmail(token) {
+    // Összes titkosított e-mail cella kijelölése
+    const emailCells = document.querySelectorAll('.secure-email-cell');
     
-    if (emailCell) {
-        // Biztonságosan beillesztjük a valódi e-mail címet és a mailto linket
-        emailCell.innerHTML = '<a href="mailto:examplemail@google.com">examplemail@google.com</a>';
-    }
+    emailCells.forEach(cell => {
+        // Kiolvassuk a titkosított Base64 karakterláncot
+        const encodedEmail = cell.getAttribute('data-email');
+        
+        if (encodedEmail) {
+            try {
+                // Biztonságos visszafejtés (atob) csak a kliens oldalán, a validálás után
+                const decodedEmail = atob(encodedEmail);
+                
+                // HTML link generálása és beszúrása
+                cell.innerHTML = `<a href="mailto:${decodedEmail}">${decodedEmail}</a>`;
+            } catch (error) {
+                console.error("Hiba történt az email dekódolása során:", error);
+                cell.innerHTML = `<span style="color: red;">Decoding error</span>`;
+            }
+        }
+    });
     
-    // Megkeressük a CAPTCHA dobozt
+    // A CAPTCHA wrapper elrejtése a sikeres folyamat után
     const captchaWrapper = document.querySelector('.captcha-wrapper');
-    
     if (captchaWrapper) {
-        // Elrejtjük a CAPTCHA-t a sikeres ellenőrzés után, hogy letisztultabb legyen az oldal
         captchaWrapper.style.display = 'none';
     }
 }

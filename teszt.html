@@ -44,25 +44,28 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- 1. SZERVEZŐ -->
                     <tr>
                         <td>István Scheuring</td>
                         <td>Scientific Advisor</td>
-                        <!-- Biztonságos cella, kezdetben üzenettel az email cím helyett -->
-                        <td id="secure-email-cell">
-                            <span class="waiting-msg"></span>
+                        <!-- Az email cím Base64 kódolva van, a robotok nem tudják leolvasni -->
+                        <td class="secure-email-cell" data-email="ZXhhbXBsZW1haWwxQGdvb2dsZS5jb20=">
+                            <span class="waiting-msg">Complete CAPTCHA above</span>
                         </td>
-                        <td>
-                            <!-- Kijavított linkek: tiszta sortörésekkel a hibás </p> helyett -->
-                            <a href="https://google.com">Google scholar</a><br>
-                            <a href="https://mtmt.hu">MTMT</a><br>
-                            <a href="https://hun-ren.hu">Professional CER webpage</a><br>
-                            <a href="https://orcid.org">ORCID</a><br>
-                            <a href="https://researchgate.net">ResearchGate</a><br>
-                            <a href="https://linkedin.com">LinkedIn</a><br>
-                            <a href="https://scopus.com">Scopus</a>
+                        <td><a href="https://google.com">Google scholar</a></td>
+                    </tr>
+                    
+                    <!-- 2. SZERVEZŐ -->
+                    <tr>
+                        <td>Kovács János</td>
+                        <td>Co-organizer</td>
+                        <td class="secure-email-cell" data-email="amFub3Mua292YWNzQGV4YW1wbGUuY29t">
+                            <span class="waiting-msg">Complete CAPTCHA above</span>
                         </td>
+                        <td><a href="#">Professional webpage</a></td>
                     </tr>
                 </tbody>
+
             </table>
         </div>
     </main>
