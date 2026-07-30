@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xeno-Coop conf 2026 Organisers</title>
     <link rel="stylesheet" href="styles/style.css">
-    <!-- Google reCAPTCHA Enterprise API -->
     <script src="https://www.google.com/recaptcha/enterprise.js" async="" defer=""></script>
+    <script src="javascripts/elecronic mail reveal.js" defer></script>
 </head>
 <body>
 
@@ -27,7 +27,7 @@
     <div class="captcha-wrapper">
         <div class="captcha-instruction">Show electronic mail:</div>
         <!-- A Google reCAPTCHA doboza automatikus visszahívással -->
-        <div class="g-recaptcha" data-sitekey="6LdKymwtAAAAADt2Y2sA6mqRA96JjzparepOAs_2" data-callback="revealSecureEmail"></div>
+        <div class="g-recaptcha" data-sitekey="6LdKymwtAAAAADt2Y2sA6mqRA96JjzparepOAs_2" data-callback="Reveal_secure_electronic_mail"></div>
     </div>
 
     <main class="container">
@@ -77,19 +77,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- JavaScript az ellenőrzés futtatásához és az email biztonságos beszúrásához -->
-    <script>
-        function revealSecureEmail(token) {
-            const emailCell = document.getElementById('secure-email-cell');
-            
-            // Csak sikeres ellenőrzés után illesztjük be a valódi email linket
-            emailCell.innerHTML = '<a href="mailto:examplemail@google.com">examplemail@google.com</a>';
-            
-            // Opcionális: Szépen elrejti a fenti CAPTCHA dobozt, ha már sikeres volt a pipálás
-            document.querySelector('.captcha-wrapper').style.display = 'none';
-        }
-    </script>
-
 </body>
 </html>
