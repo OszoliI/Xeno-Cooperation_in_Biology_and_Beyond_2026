@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-mail Védelem Teszt</title>
     
-    <!-- 1. A Google reCAPTCHA betöltése -->
-    <script src="https://google.com" async defer></script>
+    <!-- 1. A Google VÁLLALATI (Enterprise) reCAPTCHA betöltése -->
+    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
 
     <style>
         body {
@@ -51,9 +51,10 @@
     <h3>Lépjen velünk kapcsolatba</h3>
     <p class="leiras">Az e-mail cím megtekintéséhez kérjük, igazolja, hogy Ön ember:</p>
 
-    <!-- 2. A reCAPTCHA doboz (A data-sitekey-be a NYILVÁNOS kulcsát másolja!) -->
+    <!-- 2. A VÁLLALATI reCAPTCHA doboz a működő kulccsal és action paraméterrel -->
     <div class="g-recaptcha" 
          data-sitekey="6LdKymwtAAAAADt2Y2sA6mqRA96JjzparepOAs_2" 
+         data-action="LOGIN"
          data-callback="recaptchaSikeres">
     </div>
 
@@ -64,10 +65,10 @@
 </div>
 
 <script>
-    // Ez a függvény automatikusan lefut, ha a felhasználó kipipálja a reCAPTCHA-t
+    // Ez a függvény automatikusan lefut, ha a felhasználó sikeresen teljesíti a captchát
     function recaptchaSikeres(response) {
-        if (response.length > 0) {
-            // Biztonsági trükk: darabokból rakjuk össze az e-mailt, hogy a spambotok ne olvassák ki a forráskódból
+        if (response && response.length > 0) {
+            // Darabokból rakjuk össze az e-mailt, hogy a spambotok ne olvassák ki a forráskódból
             var felhasznalo = "XenoCoop2026"; 
             var domain = "gmail.com"; 
             var teljesEmail = felhasznalo + "@" + domain;
