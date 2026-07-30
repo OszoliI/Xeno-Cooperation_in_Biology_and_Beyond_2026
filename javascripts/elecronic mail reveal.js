@@ -11,7 +11,7 @@ function _sysDecode(_str) {
 }
 
 // Ezt hívja meg a Google reCAPTCHA, ha a pipa sikeres
-function revealSecureEmail(token) {
+function Reveal_secure_electronic_mail(token) {
     // Dinamikus szelektor-összerakás, hogy a bot ne lássa közvetlenül az osztálynevet
     const _targetClass = ['.', 'secure', '-', 'email', '-', 'cell'].join('');
     const cells = document.querySelectorAll(_targetClass);
