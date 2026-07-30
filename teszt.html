@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-mail Védelem Teszt</title>
+    
+    <!-- 1. Google reCAPTCHA API betöltése -->
+    <script src="https://google.com" async defer></script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            line-height: 1.6;
+        }
+        .kapcsolat-doboz {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            max-width: 400px;
+            background-color: #f9f9f9;
+        }
+        .email-link {
+            font-weight: bold;
+            color: #0056b3;
+            text-decoration: none;
+        }
+        .email-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="kapcsolat-doboz">
+        <h3>Lépjen velünk kapcsolatba</h3>
+        
+        <!-- Ez a konténer tartalom cserélődik le a sikeres ellenőrzés után -->
+        <div id="email-kontener">
+            <p>Az e-mail cím megtekintéséhez kérjük, igazolja, hogy Ön ember:</p>
+            
+            <!-- 2. Google reCAPTCHA Widget -->
+            <!-- Cserélje ki a data-sitekey értékét a saját Google Webhelykulcsára! -->
+            <div class="g-recaptcha" 
+                 data-sitekey="6LdKymwtAAAAADt2Y2sA6mqRA96JjzparepOAs_2" 
+                 data-callback="felfedEmail">
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. A védelmi logika -->
+    <script>
+    function felfedEmail(response) {
+        // A robot csak ezt a titkosított karaktersorozatot látja a forráskódban.
+        // Ez a kód az "info@tesztdomain.hu" címet rejti.
+        var titkosEmail = "aW5mb0B0ZXN6dGRvbWFpbi5odQ==";
+        
+        // Az 'atob' függvény visszafejti a Base64 kódot sima szöveggé a memóriában
+        var valodiEmail = atob(titkosEmail);
+        
+        // Lecseréljük a CAPTCHA dobozt a valódi, kattintható e-mail címre
+        document.getElementById("email-kontener").innerHTML = 
+            '<strong>E-mail címünk:</strong> <br>' +
+            '<a class="email-link" href="mailto:' + valodiEmail + '">' + valodiEmail + '</a>';
+    }
+    </script>
+
+</body>
+</html>
