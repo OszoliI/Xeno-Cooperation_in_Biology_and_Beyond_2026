@@ -380,3 +380,39 @@ footer {
     color: var(--card-bg); /* Fehér szöveg hover esetén */
     background-color: var(--secondary-color); /* Kicsit világosabb kék háttér gombként */
 }
+/* --- CAPTCHA KONTÉNER STÍLUSA (ÖSSZHANGBAN A DESIGNNAL) --- */
+.captcha-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    max-width: 450px;
+    width: 90%;
+}
+
+.captcha-instruction {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1.25rem;
+}
+
+/* Biztosítja, hogy a Google doboza mindig középen maradjon */
+.g-recaptcha {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+/* A táblázatban megjelenő várakozási üzenet stílusa */
+.waiting-msg {
+    font-style: italic;
+    color: #64748b; /* Finom szürke szín a meglévő palettából */
+    font-size: 0.95rem;
+}
