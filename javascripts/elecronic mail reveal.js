@@ -4,7 +4,7 @@
  * A Google reCAPTCHA sikeres teljesítése után fut le.
  * Végigmegy a cellákon, dekódolja a Base64-es adatot, és megjeleníti a linkeket.
  */
-function revealSecureEmail(token) {
+function Reveal_secure_electronic_mail(token) {
     // Összes titkosított e-mail cella kijelölése
     const emailCells = document.querySelectorAll('.secure-email-cell');
     
