@@ -278,7 +278,7 @@ main {
 table {
     width: 100%;
     border-collapse: collapse;
-    text-align: left;
+    text-align: center;
 }
 
 th {
@@ -289,6 +289,7 @@ th {
     padding: 1.5rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    text-align: center;
 }
 
 td {
@@ -296,6 +297,7 @@ td {
     border-bottom: 1px solid var(--border-color);
     color: var(--text-color);
     font-size: 1.1rem;
+    text-align: center;
 }
 
 tr:last-child td {
@@ -315,7 +317,8 @@ td img {
     max-width: 350px;
     height: auto;
     border-radius: var(--radius-sm);
-    display: block;
+    display: inline-block;
+    margin: 0 auto;
 }
 
 table a {
