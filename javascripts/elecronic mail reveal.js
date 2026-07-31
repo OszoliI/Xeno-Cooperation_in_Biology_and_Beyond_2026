@@ -1,35 +1,27 @@
-function _sysDecode(_str) {
-    const _k = 42;
-    let _r = '';
-    for (let _i = 0; _i < _str.length; _i++) {
-        _r += String.fromCharCode(_str.charCodeAt(_i) ^ _k);
+const _0x9a2b=['\x64\x61\x74\x61','\x74\x72\x69\x6d','\x61\x74\x6f\x62','\x71\x75\x65\x72\x79\x53\x65\x6c\x65\x63\x74\x6f\x72\x41\x6c\x6c','\x2e\x73\x65\x63\x75\x72\x65\x2d\x63\x65\x6c\x6c','\x66\x6f\x72\x45\x61\x63\x68','\x67\x65\x74\x41\x74\x74\x72\x69\x62\x75\x74\x65','\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c','\x3c\x61\x20\x68\x72\x65\x66\x3d\x22\x6d\x61\x69\x6c\x74\x6f\x3a','\x22\x3e','\x3c\x2f\x61\x3e','\x45\x72\x72\x6f\x72','\x71\x75\x65\x72\x79\x53\x65\x6c\x65\x63\x74\x6f\x72','\x2e\x63\x61\x70\x74\x63\x68\x61\x2d\x77\x72\x61\x70\x70\x65\x72','\x73\x74\x79\x6c\x65','\x64\x69\x73\x70\x6c\x61\x79','\x6e\x6f\x6e\x65','\x6c\x65\x6e\x67\x74\x68','\x66\x72\x6f\x6d\x43\x68\x61\x72\x43\x6f\x64\x65','\x63\x68\x61\x72\x43\x6f\x64\x65\x41\x74'];
+
+function _0x3b8d(_0x1f2){
+    let _0x4d5=0x2a,_0x5e6='';
+    for(let _0x6f7=0x0;_0x6f7<_0x1f2[_0x9a2b[0x11]];_0x6f7++){
+        _0x5e6+=String[_0x9a2b[0x12]](_0x1f2[_0x9a2b[0x13]](_0x6f7)^_0x4d5);
     }
-    return _r;
+    return _0x5e6;
 }
 
-function initializeSecureData(token) {
-    const _targetClass = ['.', 'secure', '-', 'cell'].join('');
-    const cells = document.querySelectorAll(_targetClass);
-    
-    cells.forEach(cell => {
-        const _attrName = 'data';
-        const encodedData = cell.getAttribute(_attrName);
-        
-        if (encodedData) {
-            try {
-                const stage1 = window.atob(encodedData.trim());
-                const realEmail = _sysDecode(stage1);
-                
-                cell.innerHTML = '<a href="mailto:' + realEmail + '">' + realEmail + '</a>';
-            } catch (e) {
-                console.error("Decoding issue:", e);
-                cell.innerHTML = 'Error';
+function initializeSecureData(_0x7a8){
+    const _0x8b9=document[_0x9a2b[0x3]](_0x9a2b[0x4]);
+    _0x8b9[_0x9a2b[0x5]](_0x9ca=>{
+        const _0xadb=_0x9ca[_0x9a2b[0x6]](_0x9a2b[0x0]);
+        if(_0xadb){
+            try{
+                const _0xbec=window[_0x9a2b[0x2]](_0xadb[_0x9a2b[0x1]]());
+                const _0xcfd=_0x3b8d(_0xbec);
+                _0x9ca[_0x9a2b[0x7]]=_0x9a2b[0x8]+_0xcfd+_0x9a2b[0x9]+_0xcfd+_0x9a2b[0xa];
+            }catch(_0xd0e){
+                _0x9ca[_0x9a2b[0x7]]=_0x9a2b[0xb];
             }
         }
     });
-    
-    const wrapper = document.querySelector('.captcha-wrapper');
-    if (wrapper) {
-        wrapper.style.display = 'none';
-    }
+    const _0xe1f=document[_0x9a2b[0xc]](_0x9a2b[0xd]);
+    if(_0xe1f)_0xe1f[_0x9a2b[0xe]][_0x9a2b[0xf]]=_0x9a2b[0x10];
 }
