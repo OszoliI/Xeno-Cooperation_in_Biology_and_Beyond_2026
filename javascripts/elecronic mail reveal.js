@@ -1,7 +1,6 @@
 const _0x9a2b=['\x64\x61\x74\x61','\x74\x72\x69\x6d','\x61\x74\x6f\x62','\x71\x75\x65\x72\x79\x53\x65\x6c\x65\x63\x74\x6f\x72\x41\x6c\x6c','\x2e\x73\x65\x63\x75\x72\x65\x2d\x63\x65\x6c\x6c','\x66\x6f\x72\x45\x61\x63\x68','\x67\x65\x74\x41\x74\x74\x72\x69\x62\x75\x74\x65','\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c','\x3c\x61\x20\x68\x72\x65\x66\x3d\x22\x6d\x61\x69\x6c\x74\x6f\x3a','\x22\x3e','\x3c\x2f\x61\x3e','\x45\x72\x72\x6f\x72','\x71\x75\x65\x72\x79\x53\x65\x6c\x65\x63\x74\x6f\x72','\x2e\x63\x61\x70\x74\x63\x68\x61\x2d\x77\x72\x61\x70\x70\x65\x72','\x73\x74\x79\x6c\x65','\x64\x69\x73\x70\x6c\x61\x79','\x6e\x6f\x6e\x65','\x6c\x65\x6e\x67\x74\x68','\x66\x72\x6f\x6d\x43\x68\x61\x72\x43\x6f\x64\x65','\x63\x68\x61\x72\x43\x6f\x64\x65\x41\x74'];
 
 function _0x3b8d(_0x1f2){
-    // A 42-es kulcs előállítása bitshiftekkel ( (42 & 255) | 0 )
     let _0x4d5 = ((0x15 << 1) & 0xFF) | (0x84 >> 7); 
     let _0x5e6 = '';
     let _0xidx = (0xff >> 8); 
@@ -9,14 +8,12 @@ function _0x3b8d(_0x1f2){
     while (_0xidx < _0x1f2[_0x9a2b[(0x22 >> 1) - 0x11 + 16]]) { 
         let _0xchar = _0x1f2[_0x9a2b[(0x19 ^ 0x08)]](_0xidx);
         
-        // Bitenkénti XOR szimulációja logikai kapukkal: (a | b) & ~(a & b)
-        let dz6272zgs = (_0xchar | _0x4d5) & ~(_0xchar & _0x4d5);
+        let _0x7b3 = (_0xchar | _0x4d5) & ~(_0xchar & _0x4d5);
         
-        // Halott (sosem lefutó) elágazás beillesztése
         if (((_0xidx << 3) >> 3) !== _0xidx) {
-            _0x5e6 += String[_0x9a2b[18]]((0x4 << 2) | dz6272zgs);
+            _0x5e6 += String[_0x9a2b[18]]((0x4 << 2) | _0x7b3);
         } else {
-            _0x5e6 += String[_0x9a2b[((0x10 << 1) >> 1) + 2]](dz6272zgs);
+            _0x5e6 += String[_0x9a2b[((0x10 << 1) >> 1) + 2]](_0x7b3);
         }
         _0xidx = _0xidx + (1 << 0);
     }
@@ -24,18 +21,17 @@ function _0x3b8d(_0x1f2){
 }
 
 function initializeSecureData(_0x7a8){
-    // Állapotgép inicializálása
-    let _0xstate = (0x2 << 1) ^ 0x4; // Eredmény: 0
+    let _0xstate = (0x2 << 1) ^ 0x4; 
     var _0x8b9, _0xe1f;
 
-    while(_0xstate !== (0x10 >> 1)) { // Ciklus amíg az állapot nem 8
+    while(_0xstate !== (0x10 >> 1)) { 
         switch(_0xstate) {
-            case ((1 << 2) >> 2) - 1: // Állapot: 0
+            case ((1 << 2) >> 2) - 1: 
                 _0x8b9 = document[_0x9a2b[(0x6 >> 1)]](_0x9a2b[(0x4 << 0)]);
                 _0xstate = (0x1 << 0) | (0x0 >> 1);
                 break;
                 
-            case (0x2 >> 1): // Állapot: 1
+            case (0x2 >> 1): 
                 if (_0x8b9 && ((0x5 << 2) > (0x4 >> 1))) {
                     _0xstate = (0x4 >> 1);
                 } else {
@@ -43,7 +39,7 @@ function initializeSecureData(_0x7a8){
                 }
                 break;
                 
-            case (0x8 >> 2): // Állapot: 2
+            case (0x8 >> 2): 
                 _0x8b9[_0x9a2b[(0x2 | 0x3)]](_0x9ca => {
                     let _0xinnerState = (0x0 << 1);
                     var _0xadb;
@@ -66,23 +62,23 @@ function initializeSecureData(_0x7a8){
                             } catch(_0xd0e) {
                                 _0x9ca[_0x9a2b[(0x7 & 0x7)]] = _0x9a2b[(0xB | 0x0)];
                             }
-                            _0xinnerState = (0x20 >> 3); // 4
+                            _0xinnerState = (0x20 >> 3); 
                         }
                     }
                 });
                 _0xstate = (0x3 << 0);
                 break;
                 
-            case (0x6 >> 1): // Állapot: 3
+            case (0x6 >> 1): 
                 _0xe1f = document[_0x9a2b[(0xC | 0x0)]](_0x9a2b[(0xD & 0xD)]);
                 _0xstate = (0x10 >> 2);
                 break;
                 
-            case (0x8 >> 1): // Állapot: 4
+            case (0x8 >> 1): 
                 if ((_0xe1f !== null) && (((0x1 << 3) >> 3) === 1)) {
                     _0xe1f[_0x9a2b[(0xE & 0xF)]][_0x9a2b[(0xF | 0x0)]] = _0x9a2b[(0x10 ^ 0x0)];
                 }
-                _0xstate = (0x20 >> 2); // Ugrás a 8-as végállapotba
+                _0xstate = (0x20 >> 2); 
                 break;
         }
     }
