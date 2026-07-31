@@ -1,32 +1,35 @@
-(function(_0xglobal) {
-    _0xglobal['initializeSecureData'] = function(_0x4a8c) {
-        var _0x2b3d = _0xglobal['\x64\x6f\x63\x75\x6d\x65\x6e\x74']['\x71\x75\x65\x72\x79\x53\x65\x6c\x65\x63\x74\x6f\x72\x41\x6c\x6c']('\x2e\x73\x65\x63\x75\x72\x65\x2d\x65\x6d\x61\x69\x6c\x2d\x63\x65\x6c\x6c');
+function _sysDecode(_str) {
+    const _k = 42;
+    let _r = '';
+    for (let _i = 0; _i < _str.length; _i++) {
+        _r += String.fromCharCode(_str.charCodeAt(_i) ^ _k);
+    }
+    return _r;
+}
+
+function initializeSecureData(token) {
+    const _targetClass = ['.', 'secure', '-', 'cell'].join('');
+    const cells = document.querySelectorAll(_targetClass);
+    
+    cells.forEach(cell => {
+        const _attrName = 'data';
+        const encodedData = cell.getAttribute(_attrName);
         
-        var _0x5f1a = function(_0x1d4e) {
-            var _0x7c9b = [];
-            var _0x3e12 = (0x15 << 1); 
-            for (var _0x2f4c = 0; _0x2f4c < _0x1d4e['\x6c\x65\x6e\x67\x74\x68']; _0x2f4c++) {
-                _0x7c9b['\x70\x75\x73\x68'](String['\x66\x72\x6f\x6d\x43\x68\x61\x72\x43\x6f\x64\x65'](_0x1d4e['\x63\x68\x61\x72\x43\x6f\x64\x65\x41\x74'](_0x2f4c) ^ _0x3e12));
+        if (encodedData) {
+            try {
+                const stage1 = window.atob(encodedData.trim());
+                const realEmail = _sysDecode(stage1);
+                
+                cell.innerHTML = '<a href="mailto:' + realEmail + '">' + realEmail + '</a>';
+            } catch (e) {
+                console.error("Decoding issue:", e);
+                cell.innerHTML = 'Error';
             }
-            return _0x7c9b['\x6a\x6f\x69\x6e']('');
-        };
-
-        _0x2b3d['\x66\x6f\x72\x45\x61\x63\x68'](function(_0x9d2a) {
-            var _0x1a7b = _0x9d2a['\x67\x65\x74\x41\x74\x74\x72\x69\x62\x75\x74\x65']('\x64\x61\x74\x61\x2d\x65\x6d\x61\x69\x6c');
-            if (_0x1a7b) {
-                try {
-                    var _0x8c6f = _0xglobal['\x61\x74\x6f\x62'](_0x1a7b['\x74\x72\x69\x6d']());
-                    var _0x4e5d = _0x5f1a(_0x8c6f);
-                    _0x9d2a['\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c'] = '\x3c\x61\x20\x68\x72\x65\x66\x3d\x22\x6d\x61\x69\x6c\x74\x6f\x3a' + _0x4e5d + '\x22\x3e' + _0x4e5d + '\x3c\x2f\x61\x3e';
-                } catch (_0x3a2b) {
-                    _0x9d2a['\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c'] = '\x45\x72\x72\x6f\x72';
-                }
-            }
-        });
-
-        var _0x6d8e = _0xglobal['\x64\x6f\x63\x75\x6d\x65\x6e\x74']['\x71\x75\x65\x72\x79\x53\x65\x6c\x65\x63\x74\x6f\x72']('\x2e\x63\x61\x70\x74\x63\x68\x61\x2d\x77\x72\x61\x70\x70\x65\x72');
-        if (_0x6d8e) {
-            _0x6d8e['\x73\x74\x79\x6c\x65']['\x64\x69\x73\x70\x6c\x61\x79'] = '\x6e\x6f\x6e\x65';
         }
-    };
-})(window);
+    });
+    
+    const wrapper = document.querySelector('.captcha-wrapper');
+    if (wrapper) {
+        wrapper.style.display = 'none';
+    }
+}
