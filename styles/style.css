@@ -347,9 +347,11 @@ footer {
     margin-top: auto; /* Alulra tapasztja a láblécet, ha kevés a tartalom */
 }
 
+/* --- FOOTER OPTIMALIZÁLÁSA (RUGALMASAN TÖREDŐ HASÁBOK) --- */
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 hajszálpontosan egyenlő széles hasáb */
+    /* Automatikusan tör új sorba 1, 2 vagy több elemet a szabad hely függvényében */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
     width: 100%;
     gap: 1.5rem;
 }
@@ -368,6 +370,12 @@ footer {
     align-items: center;
 }
 
+/* Biztosítja, hogy a HTML-ben lévő 250px-es képek alkalmazkodjanak a dobozhoz */
+.footer-section img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
 .footer-section a {
     color: #94a3b8; /* Világos szürkéskék szöveg a sötét háttéren */
     text-decoration: none;
