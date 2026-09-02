@@ -278,7 +278,6 @@ main {
 table {
     width: 100%;
     border-collapse: collapse;
-    text-align: center;
 }
 
 th {
@@ -297,7 +296,7 @@ td {
     border-bottom: 1px solid var(--border-color);
     color: var(--text-color);
     font-size: 1.1rem;
-    text-align: center;
+    text-align: left;
 }
 
 tr:last-child td {
