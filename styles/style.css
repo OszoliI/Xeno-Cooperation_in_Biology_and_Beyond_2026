@@ -427,3 +427,17 @@ footer {
     color: #64748b; /* Finom szürke szín a meglévő palettából */
     font-size: 0.95rem;
 }
+
+/* Szünetek sorai */
+.break-row td {
+    text-align: center;
+    font-weight: 600;
+}
+
+.coffee-break {
+    background-color: #eef4f8;
+}
+
+.lunch-break {
+    background-color: #f2f7ed;
+}
